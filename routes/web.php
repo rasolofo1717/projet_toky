@@ -19,6 +19,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/etudiant', [EtudiantController::class, 'index']);
+Route::get('/etudiant', [EtudiantController::class, 'index'])->name('index.etudiant');
 Route::post('/etudiant', [EtudiantController::class, 'enregistrer']);
+Route::get('/etudiant/{id}/delete', [EtudiantController::class, 'supprimer'])->name('delete.etudiant');
+Route::get('/etudiant/{id}/edit', [EtudiantController::class, 'editer'])->name('edit.etudiant');
+Route::post('/etudiant/{id}/update', [EtudiantController::class, 'update'])->name('update.etudiant');
 Route::get('/maison', [MaisonController::class, 'index']);
